@@ -30,4 +30,17 @@ public class CardInfoManagementServiceImpl implements CardInfoManagementService 
 		return mn.get(0);
 	}
 
+	@Override
+	public List<MBatchNumber> getListCards() {
+		MBatchNumberExample example = new MBatchNumberExample();
+		List<MBatchNumber> mbList = this.mBatchNumberMapper.selectByExample(example);
+		return mbList;
+	}
+
+	@Override
+	public int countByExample() {
+		MBatchNumberExample example = new MBatchNumberExample();
+		long count = this.mBatchNumberMapper.countByExample(example);
+		return (int)count;
+	}
 }

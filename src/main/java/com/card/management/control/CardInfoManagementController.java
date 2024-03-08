@@ -3,6 +3,8 @@
  */
 package com.card.management.control;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,5 +26,10 @@ public class CardInfoManagementController {
 	@GetMapping("/cards")
 	public MBatchNumber getCards(@RequestParam(value = "batchNumber") String batchNumber) {
 		return service.getCards(batchNumber);
+	}
+	
+	@GetMapping("/cardsList")
+	public List<MBatchNumber> getCardsList() {
+		return service.getListCards();
 	}
 }
